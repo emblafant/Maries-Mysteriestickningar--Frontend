@@ -14,8 +14,8 @@ const Nav = () => {
             return <li key={i}><Link href={category.url}>{category.name}</Link></li>
           } else {
             return (
-              <>
-              <li key={i}>
+              <div key={i}>
+              <li>
                 {category.name}
                 <button onClick={() => {setDisplaySubCat(!displaySubCat)}}>
                   {displaySubCat ? <RxChevronUp/> : <RxChevronDown/>}
@@ -24,12 +24,12 @@ const Nav = () => {
               {displaySubCat ?
                 <ul key={i + "ul"}>
                 {category.subCategories.map((subCat:any, i:number) => {
-                  return <li key={i}><Link href={subCat.url}>{subCat.name}</Link></li>
+                  return <li><Link href={subCat.url}>{subCat.name}</Link></li>
                 })}
                 </ul>
                 : ""
                }
-              </>
+              </div>
             )
           }
         })}
