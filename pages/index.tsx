@@ -1,7 +1,10 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
+import axios from 'axios'
 
-export default function Home() {
+import ProductThumbnail from '@/components/ProductThumbnail'
+
+export default function Home({ patterns }:any) {
   return (
     <>
       <Head>
@@ -11,7 +14,23 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+      {patterns.map((pattern:any, i:number) => {
+          return (
+            <ProductThumbnail key={i} data={pattern}/>
+          )
+        })}
       </main>
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const patterns = await axios.get(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}api/patterns?populate=*`
+  )
+  return {
+    props: {
+      patterns: patterns?.data.data ?? [],
+    }
+  }
 }
