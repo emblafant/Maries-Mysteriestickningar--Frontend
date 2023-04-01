@@ -3,4 +3,18 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+  env: {
+    NEXT_PUBLIC_STRAPI_URL: "http://127.0.0.1:1337/api/",
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname:"127.0.0.1",
+        port: "1337",
+        pathname: "/uploads/**",
+      },
+    ],
+  }
+}
