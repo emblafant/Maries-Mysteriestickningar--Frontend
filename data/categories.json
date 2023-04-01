@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Kontakt/Köp",
+    "url": "/kontakt-köp"
+  },
+  {
+    "name": "Sockor",
+    "subCategories": [
+      {
+        "name": "Tunna Sockor",
+        "url": "/mönster/sockor/tunna-sockor"
+    
+      },
+      {
+        "name": "Tjocka Sockor",
+        "url": "/mönster/sockor/tjocka-sockor"
+    
+      },
+      {
+        "name": "Ankelscokor",
+        "url": "/mönster/sockor/ankelsockor"
+    
+      },
+      {
+        "name": "Alla Sockor",
+        "url": "/mönster/sockor"
+    
+      }
+    ]
+
+  },
+  {
+    "name": "Vantar",
+    "url": "/mönster/vantar"
+
+  },
+  {
+    "name": "Mössor",
+    "url": "/mönster/mössor"
+
+  },
+  {
+    "name": "Accessoarer",
+    "url": "/mönster/accessoarer"
+
+  },
+  {
+    "name": "Sjalar",
+    "url": "/mönster/sjalar"
+
+  },
+  {
+    "name": "Tröjor",
+    "url": "/mönster/tröjor"
+
+  },
+  {
+    "name": "Handfärgat Garn",
+    "url": "/garn"
+
+  },
+  {
+    "name": "Böcker",
+    "url": "/böcker"
+
+  },
+  {
+    "name": "Alla Produkter",
+    "url": "/"
+
+  }
+]
