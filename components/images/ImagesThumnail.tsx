@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ImageSingle from "./ImageSingle";
 const ImagesThumbnail = (images:any) => {
   images = images.images.data;
 
@@ -13,16 +14,12 @@ const ImagesThumbnail = (images:any) => {
       {images.map((img:any, i:number) => {
         if (i < 4) {
         return (
-          <div className="img-container" key={i}>
-              <Image src={`${process.env.NEXT_PUBLIC_STRAPI_URL}uploads/${img.attributes.hash}${img.attributes.ext}`} fill alt="produkt bild"/>
-          </div>
+          <ImageSingle key={i} image={`${process.env.NEXT_PUBLIC_STRAPI_URL}uploads/${img.attributes.hash}${img.attributes.ext}`} alt="produktbild"/>
         )};
       })}
     </div>
     :
-    <div className="img-container">
-      <Image src={`${process.env.NEXT_PUBLIC_STRAPI_URL}uploads/${images[0].attributes.hash}${images[0].attributes.ext}`} fill alt="produkt bild"/>
-    </div>
+    <ImageSingle image={`${process.env.NEXT_PUBLIC_STRAPI_URL}uploads/${images[0].attributes.hash}${images[0].attributes.ext}`} alt="produktbild"/>
     }
     </>
   )
