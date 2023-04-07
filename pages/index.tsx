@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import ProductThumbnail from '@/components/ProductThumbnail'
 import Carousel from '@/components/images/Carousel'
+import Product from '@/components/Product'
 
 export default function Home({ patterns }:any) {
   return (
@@ -15,6 +16,7 @@ export default function Home({ patterns }:any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+      <Product data={patterns[0]}/>
       <Carousel images={patterns[0].attributes.images.data}/>
       {patterns.map((pattern:any, i:number) => {
           return (
