@@ -1,12 +1,20 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import axios from 'axios'
+import {  useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import { fetchData } from "@/functions/fetchData";
+import { sortData } from '@/functions/sortData';
+
 
 import ProductThumbnail from '@/components/ProductThumbnail'
 import Carousel from '@/components/images/Carousel'
 import Product from '@/components/Product'
 
-export default function Home({ patterns }:any) {
+export default function Home({patterns, books, yarn}:any) {
+  const featuredPattern = patterns.reverse()[0].attributes;
+  const featuredBook = books.reverse()[0].attributes;
+  const featuredYarn = yarn.reverse()[0].attributes;
   return (
     <>
       <Head>
@@ -16,13 +24,10 @@ export default function Home({ patterns }:any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-      <Product data={patterns[0]}/>
-      <Carousel images={patterns[0].attributes.images.data}/>
-      {patterns.map((pattern:any, i:number) => {
-          return (
-            <ProductThumbnail key={i} data={pattern}/>
-          )
-        })}
+        
+        <ProductThumbnail data={featuredPattern}/>
+        <ProductThumbnail data={featuredYarn}/>
+        <ProductThumbnail data={featuredBook}/>
       </main>
     </>
   )
@@ -32,9 +37,17 @@ export const getStaticProps = async () => {
   const patterns = await axios.get(
     `${process.env.NEXT_PUBLIC_STRAPI_URL}api/patterns?populate=*`
   )
+  const books = await axios.get(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}api/books?populate=*`
+  )
+  const yarn = await axios.get(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}api/yarns?populate=*`
+  )
   return {
     props: {
       patterns: patterns?.data.data ?? [],
+      books: books?.data.data ?? [],
+      yarn: yarn?.data.data ?? [],
     }
   }
 }

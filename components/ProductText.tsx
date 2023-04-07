@@ -6,7 +6,7 @@ const ProductText = ({data}:any) => {
     <div>
       <div>
         <h1>{data.title}</h1>
-        {data.pattern_type ? <p>{data.pattern_type}</p> : ""}
+        {data.pattern_type ? <Link href={`/mönster/${data.pattern_type.replace(/\s+/g, '-').toLowerCase()}`}>{data.pattern_type}</Link> : ""}
         {data.sizes ? <p>{data.sizes}</p> : ""}
         {data.amount ? <p>{data.amount}</p> : ""}
         {data.type ? <p>{data.type}</p> : ""}

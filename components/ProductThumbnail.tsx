@@ -31,10 +31,9 @@ const getUrlPath = (data:any, id:number) => {
 }
 
 const ProductThumbnail = ({data}:any) => {
-  const id = data.id;
-  data = data.attributes;
+  const title = data.title;
 
-  const urlPath = getUrlPath(data, id);
+  const urlPath = getUrlPath(data, title);
 
   return (
     <article>
