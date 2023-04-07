@@ -1,6 +1,27 @@
+import {  useRouter } from "next/router";
+import { useState, useEffect } from "react";
+import getProduct from "@/functions/getProduct";
+import Product from "@/components/Product";
+
 const BookPage = () => {
+  const [productData, setProductData] = useState<any>();
+  const router = useRouter();
+
+  const getData = async () => {
+    const data = await getProduct(router, "books");
+    setProductData(data)
+  }
+
+  useEffect(() => {
+    if (router.query.id) {
+      getData();
+    }
+  },[router])
+
   return (
-    <p>book</p>
+    <>
+      {productData ? <Product data={productData}/> : ""}
+    </>
   )
 }
 
