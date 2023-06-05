@@ -11,14 +11,16 @@ const MobileHeader = () => {
   const [displayNav, setDisplayNav] = useState<boolean>(false);
 
   return (
-    <header>
-      <Link href="/">
+    <header className={`mobile-header ${displayNav ? "show-nav" : ""}`}>
+      <div className="header-bar">
+      <Link href="/" onClick={() => {setDisplayNav(false)}}>
       <ImageSingle image="/logo-small-white.svg" alt="logo"/>
       </Link>
       <button id="menuBtn" onClick={() => {setDisplayNav(!displayNav)}}>
         {displayNav ? <RxCross2/> : <RxHamburgerMenu/>}
       </button>
-      {displayNav ? <Nav/> : ""}
+      </div>
+      {displayNav ? <Nav setDisplayNav={setDisplayNav}/> : ""}
     </header>
   )
 }

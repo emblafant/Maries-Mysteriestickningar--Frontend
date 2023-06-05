@@ -6,7 +6,7 @@ import ImageSingle from "../images/ImageSingle";
 
 const DesktopHeader = () => {
   return (
-    <header>
+    <header className="desktop-header">
       <Link href="/">
       <ImageSingle image="/logo-big-white.svg" alt="logo"/>
       </Link>

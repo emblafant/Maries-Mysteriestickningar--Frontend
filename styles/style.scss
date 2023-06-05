@@ -1,0 +1,232 @@
+@use "colors" as color;
+@use "media";
+
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arvo&display=swap');
+
+* {
+  color: color.$white1;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: color.$black1;
+  margin: 0;
+}
+
+button {
+  background-color: transparent;
+  border-style: none;
+}
+
+a {
+  color: color.$white1;
+
+  &:visited {
+    color: color.$white1;
+  }
+}
+
+header {
+  background-color: color.$black1;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.25);
+}
+
+.desktop-header {
+  align-items: center;
+  padding: 26px 0;
+
+  .img-container {
+    height: 65px;
+    width: 360px;
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  @include media.min-width(mobile) {
+    display: none;
+  }
+  @include media.min-width(desktop) {
+    display: flex;
+  }
+}
+
+.mobile-header {
+  align-items: center;
+  padding: 0 12px;
+
+  &.show-nav {
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    box-shadow: none;
+  }
+  .header-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+
+    a {
+      height: 60px;
+    }
+
+    .img-container {
+      width: 80px;
+      height: 60px;
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    svg {
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  @include media.min-width(desktop) {
+    display: none;
+
+  }
+}
+
+nav {
+  width: 100%;
+  @include media.min-width(mobile) {
+    height: 100%;
+
+    &>ul{
+
+      li {
+        font-size: 24px;
+        font-family: 'Chelsea Market', cursive;
+        margin: 14px 0;
+      }
+
+      &>div {
+        &>li {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+
+          button {
+            margin-left: 10px;
+
+            svg {
+              height: 30px;
+              width: 30px;
+            }
+          }
+        }
+        ul {
+
+          li {
+            font-size: 18px;
+            font-family: 'Arvo', serif;
+            list-style: disc inside;
+            margin: 14px 10px;
+          }
+        }
+      }
+
+
+    }
+  }
+  @include media.min-width(desktop) {
+    li:hover {
+      opacity: 0.8;
+    }
+    & > ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      li {
+        font-size: 24px;
+        font-family: 'Chelsea Market', cursive;
+        padding: 2px 10px;
+      }
+
+      & > div {
+
+        &.dropdown {
+          background-color: color.$black2;
+          border-radius: 10px 10px 0 0;
+        }
+
+        &>li {
+          display: flex;
+          align-items: center;
+        }
+
+        button {
+          margin-left: 10px;
+          svg {
+            height: 30px;
+              width: 30px;
+          }
+        }
+
+        ul {
+          background-color: color.$black2;
+          position: absolute;
+          border-radius: 0 10px 10px 10px;
+
+          li {
+            font-size: 18px;
+            font-family: 'Arvo', serif;
+            list-style: disc inside;
+            margin: 14px 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 12px;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: color.$black2;
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.25);
+
+  @include media.min-width(desktop) {
+    margin: 20px;
+  }
+
+  svg {
+    height: 40px;
+    width: 40px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.img-container {
+  height: 30px;
+  width: 30px;
+  position: relative;
+}
+
+.filled {
+  color: red;
+}
