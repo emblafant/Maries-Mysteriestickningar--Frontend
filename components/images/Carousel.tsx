@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const Carousel = ({images}:any) => {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+
   const handleChnageSlide = (type:string) => {
     if (type == "decrease") {
       setCurrentSlide(currentSlide - 1);
@@ -18,7 +19,7 @@ const Carousel = ({images}:any) => {
       <div className="slides">
       <ImageSingle image={`${process.env.NEXT_PUBLIC_STRAPI_URL}uploads/${images[currentSlide].attributes.hash}${images[currentSlide].attributes.ext}`} alt="produktbild"/>
       </div>
-      <div className="carousel-buttons">
+      <div className={`carousel-buttons ${currentSlide == 0 ? "start": ""} ${currentSlide == images.length - 1? "end": ""}`}>
         {currentSlide > 0 ?
           <button onClick={() => {handleChnageSlide("decrease")}}><FaChevronLeft/></button>
         : ""}

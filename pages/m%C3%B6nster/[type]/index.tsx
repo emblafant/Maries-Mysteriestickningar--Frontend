@@ -38,7 +38,7 @@ const PatternsTypePage = () => {
 
   return (
     <>
-    <div>
+    <div className="titles">
       <h1>{title}</h1>
       {subTitle ? <p>{subTitle}</p> : ""}
     </div>

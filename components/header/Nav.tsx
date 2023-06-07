@@ -24,9 +24,9 @@ const Nav = ({setDisplayNav}:any) => {
           } else {
             return (
               <div key={i} className={displaySubCat ? "dropdown" : ""}>
-              <li>
+              <li onClick={() => {setDisplaySubCat(!displaySubCat)}}>
                 {category.name}
-                <button onClick={() => {setDisplaySubCat(!displaySubCat)}}>
+                <button>
                   {displaySubCat ? <RxChevronUp/> : <RxChevronDown/>}
                 </button>
               </li>

@@ -1,10 +1,8 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
 import axios from 'axios'
 import {  useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { fetchData } from "@/functions/fetchData";
-import { sortData } from '@/functions/sortData';
 
 
 import ProductThumbnail from '@/components/ProductThumbnail'
@@ -23,12 +21,12 @@ export default function Home({patterns, books, yarn}:any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        
+      <>
+
         <ProductThumbnail data={featuredPattern}/>
         <ProductThumbnail data={featuredYarn}/>
         <ProductThumbnail data={featuredBook}/>
-      </main>
+      </>
     </>
   )
 }

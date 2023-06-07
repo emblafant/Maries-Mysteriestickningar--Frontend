@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Schoolbell&display=swap");
 * {
   color: white;
   box-sizing: border-box;
@@ -7,11 +10,26 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
+  font-weight: 400;
+}
+
+html {
+  min-height: 100%;
 }
 
 body {
   background-color: #1d1d1d;
   margin: 0;
+  min-height: 100%;
+}
+
+@media (min-width: 769px) {
+  main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 button {
@@ -26,12 +44,28 @@ a:visited {
   color: white;
 }
 
+h1 {
+  font-size: 50px;
+  font-family: "Chelsea Market", cursive;
+}
+
+.sub-title {
+  font-size: 18px;
+  font-family: "Arvo", serif;
+}
+
+.titles {
+  margin: 20px 12px;
+  padding: 0 12px;
+}
+
 header {
   background-color: #1d1d1d;
   width: 100vw;
   display: flex;
   flex-direction: column;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.25);
+  z-index: 10;
 }
 
 .desktop-header {
@@ -63,7 +97,7 @@ header {
   min-height: 100vh;
   position: absolute;
   top: 0;
-  z-index: 1;
+  z-index: 11;
   box-shadow: none;
 }
 .mobile-header .header-bar {
@@ -165,6 +199,219 @@ nav {
   }
 }
 
+.product-thumbnail {
+  margin: 40px 0;
+  padding: 0 12px;
+}
+.product-thumbnail .text-container {
+  margin: 10px 12px;
+}
+.product-thumbnail .text-container h2 {
+  font-size: 32px;
+  font-family: "Chelsea Market", cursive;
+  margin-bottom: 6px;
+}
+.product-thumbnail .text-container p {
+  font-size: 18px;
+  font-family: "Arvo", serif;
+}
+.product-thumbnail .text-container .link {
+  font-size: 36px;
+  font-family: "Kalam", cursive;
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 769px) {
+  .product-thumbnail {
+    width: 100vw;
+    max-width: 800px;
+    display: flex;
+    flex-direction: row;
+  }
+  .product-thumbnail .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 50px;
+  }
+  .product-thumbnail .text-container h2 {
+    font-size: 48px;
+  }
+  .product-thumbnail .text-container p {
+    font-size: 20px;
+  }
+  .product-thumbnail .text-container .link {
+    font-size: 48px;
+    padding-top: 30px;
+  }
+}
+
+@media (min-width: 769px) {
+  .product {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    position: relative;
+    height: 30rem;
+    margin-top: 10vh;
+  }
+}
+
+.product-text {
+  margin: 0;
+}
+.product-text h1 {
+  font-size: 40px;
+  margin-bottom: 6px;
+}
+.product-text h2 {
+  font-size: 28px;
+  font-family: "Yeseva One", cursive;
+  margin-bottom: 6px;
+}
+.product-text .data-text {
+  font-size: 20px;
+  font-family: "Arvo", serif;
+}
+.product-text .materials {
+  margin: 30px 0;
+}
+.product-text .materials li {
+  list-style: disc inside;
+  font-family: "Schoolbell", cursive;
+  font-size: 18px;
+}
+.product-text .description {
+  margin: 30px 0;
+}
+.product-text .description p {
+  font-size: 16px;
+  font-family: "Arvo", serif;
+  line-height: 1.5;
+}
+.product-text .link {
+  font-size: 50px;
+  font-family: "Kalam", cursive;
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 769px) {
+  .product-text {
+    width: 40%;
+    max-width: 400px;
+    overflow: scroll;
+    position: relative;
+    height: 100%;
+  }
+  .product-text::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
+}
+
+.shadow-overlay {
+  pointer-events: none;
+  overflow: visible;
+  position: absolute;
+  height: 100%;
+  width: 40%;
+  top: 0;
+  right: 0;
+  background: linear-gradient(#1d1d1d 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 100%), linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 80%, #1d1d1d 100%);
+}
+.shadow-overlay.bottom {
+  background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 80%, #1d1d1d 100%);
+}
+.shadow-overlay.top {
+  background: linear-gradient(#1d1d1d 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 100%);
+}
+
+.images-thumbnail .img-container {
+  width: 100%;
+  position: relative;
+  padding-top: 100%;
+}
+@media (min-width: 769px) {
+  .images-thumbnail {
+    width: 50vw;
+    max-width: 500px;
+  }
+}
+
+.bundle-container {
+  width: 100%;
+  display: inline-grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+@media (min-width: 769px) {
+  .bundle-container {
+    width: 50vw;
+    max-width: 500px;
+  }
+}
+
+.carousel {
+  width: 100%;
+  position: relative;
+}
+@media (min-width: 769px) {
+  .carousel {
+    width: 30rem;
+    max-width: 500px;
+  }
+}
+.carousel .img-container {
+  width: 100%;
+  position: relative;
+  padding-top: 100%;
+}
+.carousel .carousel-buttons {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.carousel .carousel-buttons button {
+  opacity: 0.5;
+}
+.carousel .carousel-buttons button:hover {
+  opacity: 1;
+}
+.carousel .carousel-buttons svg {
+  height: 30px;
+  width: 30px;
+}
+.carousel .carousel-buttons.start {
+  justify-content: end;
+}
+.carousel .carousel-buttons.end {
+  justify-content: start;
+}
+.carousel .carousel-dots {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+.carousel .carousel-dots svg {
+  width: 20px;
+  height: 20px;
+}
+.carousel .carousel-dots .unfilled {
+  opacity: 0.5;
+}
+
 #scrollToTopBtn {
   position: fixed;
   bottom: 0;
@@ -174,6 +421,7 @@ nav {
   border-radius: 30px;
   background-color: #232323;
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.25);
+  opacity: 0.7;
 }
 @media (min-width: 769px) {
   #scrollToTopBtn {
@@ -185,18 +433,12 @@ nav {
   width: 40px;
 }
 #scrollToTopBtn:hover {
-  opacity: 0.7;
+  opacity: 1;
 }
 #scrollToTopBtn.hidden {
   display: none;
 }
 
 .img-container {
-  height: 30px;
-  width: 30px;
   position: relative;
-}
-
-.filled {
-  color: red;
 }/*# sourceMappingURL=style.css.map */

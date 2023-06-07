@@ -36,9 +36,9 @@ const ProductThumbnail = ({data}:any) => {
   const urlPath = getUrlPath(data, title);
 
   return (
-    <article>
+    <article className="product-thumbnail">
       <ImagesThumbnail images={data.images}/>
-      <div>
+      <div className="text-container">
         <div>
           <h2>{data.title}</h2>
           {data.pattern_type ? 
@@ -46,7 +46,7 @@ const ProductThumbnail = ({data}:any) => {
           : ""}
           <p>{data.price}:-</p>
         </div>
-        <Link href={urlPath}>Se mer <TbArrowNarrowRight/></Link>
+        <Link href={urlPath} className="link">Se mer <TbArrowNarrowRight/></Link>
       </div>
     </article>
   )

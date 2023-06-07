@@ -8,20 +8,20 @@ const ImagesThumbnail = (images:any) => {
 
   console.log(images[0]);
   return (
-    <>
+    <div className="images-thumbnail">
     {bundle ?
     <div className="bundle-container">
       {images.map((img:any, i:number) => {
         if (i < 4) {
         return (
-          <ImageSingle key={i} image={`${process.env.NEXT_PUBLIC_STRAPI_URL}uploads/${img.attributes.hash}${img.attributes.ext}`} alt="produktbild"/>
+          <ImageSingle className="product-image" key={i} image={`${process.env.NEXT_PUBLIC_STRAPI_URL}uploads/${img.attributes.hash}${img.attributes.ext}`} alt="produktbild"/>
         )};
       })}
     </div>
     :
     <ImageSingle image={`${process.env.NEXT_PUBLIC_STRAPI_URL}uploads/${images[0].attributes.hash}${images[0].attributes.ext}`} alt="produktbild"/>
     }
-    </>
+    </div>
   )
 }
 
